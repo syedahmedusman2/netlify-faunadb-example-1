@@ -272,7 +272,7 @@ export default class App extends Component {
           </button>
         )
       }
-      const boxIcon = (data.completed) ? '#todo__box__done' : '#todo__box'
+      const boxIcon = (data.completed)
       return (
         <div key={i} className='todo-item'>
           <label className="todo">

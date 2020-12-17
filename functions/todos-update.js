@@ -4,9 +4,10 @@ const q = faunadb.query
 
 exports.handler = (event, context) => {
   /* configure faunaDB Client with our secret */
-  const client = new faunadb.Client({
-    secret: process.env.FAUNADB_SERVER_SECRET
-  }) 
+  const client = new faunadb.Client({ secret: 'fnAD7mvR0oACAjut31JzawnitqsEVd_n8D-oa2GI' });
+  // const client = new faunadb.Client({
+  //   secret: process.env.FAUNADB_SERVER_SECRET
+  // }) 
   const data = JSON.parse(event.body)
   const id = getId(event.path)
   console.log(`Function 'todo-update' invoked. update id: ${id}`)

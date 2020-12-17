@@ -5,15 +5,14 @@ const q = faunadb.query
 /* export our lambda function as named "handler" export */
 exports.handler = async (event, context) => {
   /* configure faunaDB Client with our secret */
-  const client = new faunadb.Client({
-    secret: process.env.FAUNADB_SERVER_SECRET
-  })  
+  const client = new faunadb.Client({ secret: 'fnAD7mvR0oACAjut31JzawnitqsEVd_n8D-oa2GI' });
   /* parse the string body into a useable JS object */
   const data = JSON.parse(event.body)
   console.log('Function `todo-create` invoked', data)
   const todoItem = {
     data: data
   }
+  
   /* construct the fauna query */
   return client.query(q.Create(q.Ref('classes/todos'), todoItem))
     .then((response) => {

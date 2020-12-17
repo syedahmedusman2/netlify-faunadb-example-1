@@ -6,9 +6,10 @@ const q = faunadb.query
 
 exports.handler = async (event, context) => {
   /* configure faunaDB Client with our secret */
-  const client = new faunadb.Client({
-    secret: process.env.FAUNADB_SERVER_SECRET
-  }) 
+  const client = new faunadb.Client({ secret: 'fnAD7mvR0oACAjut31JzawnitqsEVd_n8D-oa2GI' });
+  // const client = new faunadb.Client({
+  //   secret: process.env.FAUNADB_SERVER_SECRET
+  // }) 
   const id = getId(event.path)
   console.log(`Function 'todo-delete' invoked. delete id: ${id}`)
   return client.query(q.Delete(q.Ref(`classes/todos/${id}`)))
